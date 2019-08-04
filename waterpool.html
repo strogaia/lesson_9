@@ -1,0 +1,64 @@
+<style>
+    #monitor{ width: 500px; height: 200px;
+        border: 5px solid #666; border-top: none; position:relative;}
+    #monitor .water{ width: 500px; height: 1px; background-color: blue; position: absolute; bottom: 0;}
+</style>
+
+
+<div id="monitor">
+
+</div>
+
+<script>
+
+var pool = {
+    brand: "Waters Intl",
+    MAX_VOLUME : 20, //максимальный объем м3 -> x1000l
+    volume: 0,     // сколько воды в нем на данный момент L
+    temperature: 20, // цельсиев
+
+    info: function(){
+        alert(
+            `WATER POOL\n
+            ***************
+            water inside: ${this.volume}L
+            water temperature: ${this.temperature}C
+            `
+        )
+    },
+    render : function(){
+        var div = document.getElementById("monitor")
+        var h = this.volume/100
+        div.innerHTML = `<div class="water" style="height: ${h}px"></div>`
+    },
+    pumpIn: function(){
+        var water = prompt("How many L?")
+        this.volume += parseInt(water)
+        if(this.volume <= this.MAX_VOLUME * 1000){
+            this.render()
+        } else if(this.volume > this.MAX_VOLUME * 1000){
+            alert("Невозможно добавить столько воды");
+        }
+    },
+    pumpOut: function(){
+        if(this.volume <= 0){
+            alert("Бассейн пуст")
+        } else{
+            this.volume -= 1000
+            this.render()
+        }
+    }
+}
+  
+//while(true){
+//    pool.pumpIn()
+//    pool.info()
+//}
+//pool.pumpOut()
+//pool.info()
+//ограничить объем воды в бассейне до 20м3 если нет алерт
+//функции помп аут не разрешать уходить в минус.
+</script> 
+
+<button onclick="pool.pumpIn()">pump water IN</button>
+<button onclick="pool.pumpOut()">pump water OUT</button>
