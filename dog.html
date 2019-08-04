@@ -1,0 +1,24 @@
+<script>
+
+var bigDog = {
+    name : "Jimm",
+    race : "buldog",
+    yearBirth : 2014,
+    alive : true,
+    gender : "f",
+
+    eat: function( food_kg){
+        //if/else more than, not more 5
+        if(food_kg <= 0){
+            console.log(`Мне этого мало`)
+        }else if(food_kg >= 5){
+            console.log(`Я столько не съем`)
+        } else{
+            console.log(`The dog is eating ${food_kg} kg!`)
+        }
+    }
+}
+
+bigDog.eat(6);
+console.log( bigDog );
+</script> 
