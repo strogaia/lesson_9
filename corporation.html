@@ -1,0 +1,29 @@
+<script>
+
+    var corporation = {
+        name: "Google",
+        founded: {
+            year: 1998,
+            month: "September",
+            date: 4
+        },
+        headquart: {
+            street: "Parkwey 1600",
+            stat : "California",
+            country : "U.S"
+        },
+
+
+        info: function(){
+            document.write(`
+                <h2>COMPANY INFORMATION</h2>
+                oficial name:${this.name}<br/>
+                founded in:${this.founded.month} ${this.founded.date},${this.founded.year}<br/>
+                adress: ${this.headquart.street}, ${this.headquart.stat}, ${this.headquart.country}
+            `)
+        }
+    }
+
+    corporation.info();
+
+</script>
