@@ -42,24 +42,21 @@
 
 
             render: function(){
-                storage.append( "in");
-                storage.append( "Javascript" );
-                storage.prepend( "Programming");
-                document.write(`
-                ${this.text}
-                `);
-                storage.reset();
-                storage.append( "to");
-                storage.append("learn");
-                storage.append("oop");
-                storage.prepend("has");
-                storage.prepend("One");
                 document.write(`
                 ${this.text}
                 `);
             }
 
         }
-
+        storage.append( "in");
+        storage.append( "Javascript" );
+        storage.prepend( "Programming");
         storage.render();
+        storage.reset();
+        storage.append( "to");
+        storage.append("learn");
+        storage.append("oop");
+        storage.prepend("has");
+        storage.prepend("One");
+        storage.render();      
     </script>
