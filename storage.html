@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <style>body{font-size: 100px; font-family: monospace }</style>
+
+</head>
+
+<body>
+
+    <p id="page">
+
+    </p>
+    <script>
+
+        var storage = {
+
+            text: "",
+
+            reset: function(){
+                this.text = "";
+                storage.render();
+            },
+
+
+
+            prepend: function ( word, word2 ){
+                // this.text = word + ", " + this.text;
+                if(word2){
+                    this.text = word.concat(", ", word2, this.text)
+                } else{
+                    this.text = word.concat(", ", this.text);
+                }
+                storage.render();
+            },
+
+
+
+            append: function( word ){
+                this.text = this.text.concat(", ", word);
+                storage.render();
+            },
+
+
+
+            render: function(){
+                var par = document.getElementById("page");
+                par.innerHTML = `<p>${this.text}</p>`;
+
+            }
+
+        }
+
+        
+        storage.prepend( "in", "Javascript" );
+        storage.prepend( "Programming");
+        storage.reset(); 
+        storage.append( "to");
+        storage.append("learn");
+        storage.append("oop");
+        storage.prepend("One", "has");
+        storage.reset(); 
+
+    </script>
+
+</body>
+
+</html>
