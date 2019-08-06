@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <style>body{font-size: 100px; font-family: monospace }</style>
+
+</head>
+
+<body>
+
+    <p id="page">
+
+    </p>
+    <script>
+
+        var storage = {
+
+            text: "",
+
+            reset: function(){
+                this.text = "";
+                document.body.innerHTML = '';
+            },
+
+
+
+            prepend: function ( word ){
+                this.text = word + ", "  + this.text;
+                //return this.text;
+            },
+
+
+
+            append: function( word ){
+                if(this. text !=""){
+                    this.text = this.text +", "+  word;
+                } else {this.text = this.text + word;}
+            },
+
+
+
+            render: function(){
+                storage.append( "in");
+                storage.append( "Javascript" );
+                storage.prepend( "Programming");
+                document.write(`
+                ${this.text}
+                `);
+                storage.reset();
+                storage.append( "to");
+                storage.append("learn");
+                storage.append("oop");
+                storage.prepend("has");
+                storage.prepend("One");
+                document.write(`
+                ${this.text}
+                `);
+            }
+
+        }
+
+        storage.render();
+    </script>
